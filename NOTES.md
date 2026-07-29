@@ -37,10 +37,22 @@ el array `imgs` de cada sucursal. Falta solo:
   y **Jebai, Paris, Plaza City** (To Go). La 4.ª de To Go es "Coming soon".
 
 ## 4. Fotos faltantes → marcadas como "Foto pendiente"
-Recuperé del sitio actual casi todas (Americano, Mousse mburucuyá, Tumbler, etc.).
-Quedan sin foto **solo las que tampoco existen en el sitio original**:
-- **Cold Brew Macchiato** y **Cold Brew Moccha** (daban **404** en el sitio actual).
+Recuperé del sitio actual **todas** las fotos que existen (Americano, Mousse,
+Cold Brew Macchiato, Cold Brew Moccha, los 11 productos de tienda, etc.).
+Quedan sin foto **solo 2 productos, que tampoco existen en el sitio original**:
 - **Agua sin gas** y **Agua con gas** (el sitio no tiene foto de estos).
+  → Si el cliente pasa una foto, se agrega en `data.js` (categoría `otros`).
+
+## 4b. Tienda + Carrito
+- La **tienda** ahora tiene los **11 productos reales** del sitio actual (cafés en
+  grano Red Catuai / Yellow Bourbon / Ethiopian, juego de cafeteras, kettle,
+  molino, sombrilla, termo, vaso térmico).
+- Se agregó un **carrito**: botón "+" en cada producto, drawer lateral con
+  cantidades y total, y botón **"Enviar pedido por WhatsApp"** (al `+595 973 853 007`)
+  con el pedido y el total en el mensaje.
+- ⚠️ El carrito **suma automáticamente cuando cargás los precios** en `data.js`
+  (`price: 90000`). Mientras estén en `null`, muestra "a confirmar" pero igual
+  arma el pedido con los productos y cantidades.
 
 ## 5. Asignaciones de foto a confirmar (según el orden del menú del sitio actual)
 El mapeo foto→producto se hizo siguiendo el **orden exacto** del menú del sitio

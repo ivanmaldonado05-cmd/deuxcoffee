@@ -31,8 +31,8 @@ window.DEUX_DATA = {
       { n: "Cold Brew",                img: "cold-brew",               price: null },
       { n: "Cold Brew Latte",          img: "cold-brew-latte",         price: null },
       { n: "Cold Brew Vainilla Latte", img: "cold-brew-vainilla-latte", price: null },
-      { n: "Cold Brew Macchiato",      img: null, price: null },   // no existe en el sitio actual (404)
-      { n: "Cold Brew Moccha",         img: null, price: null }    // no existe en el sitio actual (404)
+      { n: "Cold Brew Macchiato",      img: "cold-brew-macchiato", price: null },
+      { n: "Cold Brew Moccha",         img: "cold-brew-moccha",    price: null }
     ]},
     { id: "frappe", cat_i18n: "cat_frappe", items: [
       { n: "Frappe de vainilla",  img: "togo8", price: null },
@@ -87,17 +87,23 @@ window.DEUX_DATA = {
       { name: "Paris",      imgs: ["paris-1","paris-2","paris-3","paris-4","paris-5"], hours: null,
         maps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.7888595699787!2d-54.60754358968812!3d-25.51208730747655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f691004602f731%3A0x710f7aec09862db3!2sDeux%20Coffee%20Roasters%20-%20Shop.%20Paris!5e0!3m2!1ses!2sbr!4v1779564461329!5m2!1ses!2sbr" },
       { name: "Plaza City", imgs: ["plazacity-1","plazacity-2","plazacity-3","plazacity-4","plazacity-5"], hours: null,
-        maps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3176.4249481920583!2d-54.67830394772834!3d-25.497804170159586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f685007f6c8a45%3A0xc39e97a060330c69!2sCafeter%C3%ADa%20Deux%20Plaza%20City!5e1!3m2!1ses!2spy!4v1779488976864!5m2!1ses!2spy" },
+        maps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3176.4249481920583!2d-54.67830394772834!3d-25.497804170159586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f685007f6c8a45%3A0xc39e97a060330c69!2sCafeter%C3%ADa%20Deux%20Plaza%20City!5e0!3m2!1ses!2spy!4v1779488976864!5m2!1ses!2spy" },
       { name: "Coming soon", imgs: null, hours: null, maps: null, soon: true }
     ]
   },
 
-  /* ---------- TIENDA ---------- */
+  /* ---------- TIENDA (11 productos reales del sitio actual) ---------- */
   store: [
-    { n: "Drip Box Ethiopia",     img: "Drip-BOX-Ethiopia",     price: null },
-    { n: "Tumbler",               img: "tumbler",               price: null },
-    { n: "Moledor de café",       img: "moledor-de-cafe",       price: null },
-    { n: "Drip travel kit",       img: "drip-travel-kit",       price: null },
-    { n: "Tetera cuello de cisne",img: "TETERA-CUELLO-DE-CISNE",price: null }
+    { n: "Café Red Catuai · 500g",          img: "store-red-catuai-500",    price: null },
+    { n: "Café Red Catuai Brazil · 250g",   img: "store-red-catuai-250",    price: null },
+    { n: "Café Yellow Bourbon · 500g",      img: "store-yellow-bourbon-500",price: null },
+    { n: "Café Yellow Bourbon Brazil · 250g", img: "store-yellow-bourbon-250", price: null },
+    { n: "Café Ethiopian · 250g",           img: "store-ethiopian-250",     price: null },
+    { n: "Juego de cafeteras Deux",         img: "store-juego-cafeteras",   price: null },
+    { n: "Timemore Kettle",                 img: "store-timemore-kettle",   price: null },
+    { n: "Molino de café · Set",            img: "store-molino-set",        price: null },
+    { n: "Sombrilla Deux",                  img: "store-sombrilla",         price: null },
+    { n: "Termo Deux",                      img: "store-termo",             price: null },
+    { n: "Vaso térmico Deux",               img: "store-vaso-termico",      price: null }
   ]
 };

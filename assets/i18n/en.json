@@ -34,8 +34,8 @@
   "cta_see_togo": "See To Go spots",
 
   "hero_eyebrow": "Specialty coffee · Paraguay · since 2017",
-  "hero_title": "Roasted<br>the way it should be.",
-  "hero_sub": "Hand-picked Arabica beans, an SCA score of 86+, roasted on our own Probat. Coffee worth pausing for.",
+  "hero_title": "Good coffee,<br>good moments.",
+  "hero_sub": "Come in, relax and enjoy freshly roasted coffee, made with care. On your own or with friends.",
   "hero_scroll": "Scroll",
 
   "fact_year_num": "2017",
@@ -173,6 +173,16 @@
   "form_ph_position": "Barista, kitchen, cashier…",
   "form_ph_city": "Your city",
   "form_ph_branch": "Which location was it?",
+
+  "cart_title": "Your cart",
+  "cart_empty": "Your cart is empty.",
+  "cart_total": "Total",
+  "cart_checkout": "Send order on WhatsApp",
+  "cart_remove": "Remove",
+  "cart_add": "Add to cart",
+  "cart_note": "We'll arrange payment and delivery over WhatsApp.",
+  "cart_greeting": "Hi Deux! 👋 I'd like to order:",
+  "cart_pending": "to confirm",
 
   "footer_tagline": "Specialty coffee roasted in Paraguay since 2017.",
   "footer_explore": "Explore",

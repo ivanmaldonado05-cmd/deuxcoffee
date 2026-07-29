@@ -34,8 +34,8 @@
   "cta_see_togo": "Ver puntos To Go",
 
   "hero_eyebrow": "Café de especialidad · Paraguay · desde 2017",
-  "hero_title": "Tostado<br>como se debe.",
-  "hero_sub": "Granos Arábica cosechados a mano, puntuación SCA 86+, tostados en nuestra propia Probat. Un café que merece tu pausa.",
+  "hero_title": "Buen café,<br>buenos momentos.",
+  "hero_sub": "Pasá, relajate y disfrutá un café recién tostado, hecho con cariño. Solo o en compañía.",
   "hero_scroll": "Deslizá",
 
   "fact_year_num": "2017",
@@ -173,6 +173,16 @@
   "form_ph_position": "Barista, cocina, caja…",
   "form_ph_city": "Tu ciudad",
   "form_ph_branch": "¿En qué sucursal fue?",
+
+  "cart_title": "Tu carrito",
+  "cart_empty": "Tu carrito está vacío.",
+  "cart_total": "Total",
+  "cart_checkout": "Enviar pedido por WhatsApp",
+  "cart_remove": "Quitar",
+  "cart_add": "Agregar al carrito",
+  "cart_note": "Coordinamos el pago y la entrega por WhatsApp.",
+  "cart_greeting": "¡Hola Deux! 👋 Quiero hacer este pedido:",
+  "cart_pending": "a confirmar",
 
   "footer_tagline": "Café de especialidad tostado en Paraguay desde 2017.",
   "footer_explore": "Explorar",
