@@ -388,6 +388,42 @@ h1, h2, h3, h4 {
 .branch__map:hover { color: var(--amber-deep); }
 .branch.is-soon { opacity: .78; }
 
+/* Carrusel de fotos por sucursal */
+.carousel { position: relative; width: 100%; height: 100%; }
+.carousel__track {
+  display: flex; height: 100%; overflow-x: auto;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+.carousel__slide { flex: 0 0 100%; height: 100%; scroll-snap-align: start; }
+.carousel__slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.carousel__btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 34px; height: 34px; border-radius: 50%; border: 0;
+  background: rgba(23,19,15,.45); color: #fff; font-size: 1.55rem; line-height: 0;
+  display: grid; place-content: center; opacity: 0;
+  transition: opacity .25s var(--ease), background .25s var(--ease);
+}
+.branch:hover .carousel__btn, .carousel:focus-within .carousel__btn { opacity: 1; }
+.carousel__btn:hover { background: var(--amber); }
+.carousel__btn--prev { left: 8px; }
+.carousel__btn--next { right: 8px; }
+.carousel__dots {
+  position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 5px; padding: 4px 7px; border-radius: 999px;
+  background: rgba(23,19,15,.3); z-index: 1;
+}
+.carousel__dot {
+  width: 6px; height: 6px; padding: 0; border: 0; border-radius: 999px;
+  background: rgba(255,255,255,.55); cursor: pointer;
+  transition: width .25s var(--ease), background .25s var(--ease);
+}
+.carousel__dot.is-active { width: 16px; background: #fff; }
+@media (hover: none) {
+  .carousel__btn { opacity: 1; background: rgba(23,19,15,.38); }
+}
+
 /* ============ Tienda ============ */
 .store-grid { display: grid; gap: clamp(1.2rem, 2.5vw, 2rem); grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 .product { background: var(--white); border: 1px solid var(--line-2); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
@@ -504,6 +540,7 @@ h1, h2, h3, h4 {
   .reveal { opacity: 1 !important; transform: none !important; transition: none; }
   .card, .branch, .product, .btn, .mosaic img, .card__media img { transition: none !important; }
   .acc-panel, .acc-panel__inner, .acc-plus::before, .acc-plus::after { transition: none !important; }
+  .carousel__track { scroll-behavior: auto; }
 }
 
 /* ============ Responsive ============ */

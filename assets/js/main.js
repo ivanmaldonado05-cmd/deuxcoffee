@@ -157,15 +157,62 @@
   function clockIcon() {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
   }
+  function carouselHTML(imgs, name) {
+    if (!imgs || !imgs.length) {
+      return '<div class="card__nophoto"><span>&#9788;</span>' + esc(t("photo_pending")) + "</div>";
+    }
+    var slides = imgs.map(function (im, i) {
+      return '<div class="carousel__slide"><img ' + (i === 0 ? "" : 'loading="lazy" ') +
+        'src="' + IMG + im + '.webp" alt="' + esc(name) + " — " + (i + 1) + '" width="640" height="440"></div>';
+    }).join("");
+    if (imgs.length === 1) {
+      return '<div class="carousel"><div class="carousel__track">' + slides + "</div></div>";
+    }
+    var dots = imgs.map(function (_, i) {
+      return '<button class="carousel__dot' + (i === 0 ? " is-active" : "") + '" type="button" aria-label="' + esc(name) + " " + (i + 1) + '"></button>';
+    }).join("");
+    return '<div class="carousel" data-carousel>' +
+      '<div class="carousel__track">' + slides + "</div>" +
+      '<button class="carousel__btn carousel__btn--prev" type="button" aria-label="Anterior">‹</button>' +
+      '<button class="carousel__btn carousel__btn--next" type="button" aria-label="Siguiente">›</button>' +
+      '<div class="carousel__dots">' + dots + "</div>" +
+      "</div>";
+  }
+
+  function initCarousels(scope) {
+    (scope || document).querySelectorAll("[data-carousel]").forEach(function (car) {
+      if (car.dataset.ready) return;
+      car.dataset.ready = "1";
+      var track = car.querySelector(".carousel__track");
+      var slides = car.querySelectorAll(".carousel__slide");
+      var dots = car.querySelectorAll(".carousel__dot");
+      var count = slides.length;
+      function current() { return Math.round(track.scrollLeft / track.clientWidth); }
+      function go(i) {
+        i = (i + count) % count;
+        track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" });
+      }
+      car.querySelector(".carousel__btn--prev").addEventListener("click", function () { go(current() - 1); });
+      car.querySelector(".carousel__btn--next").addEventListener("click", function () { go(current() + 1); });
+      dots.forEach(function (d, i) { d.addEventListener("click", function () { go(i); }); });
+      var raf;
+      track.addEventListener("scroll", function () {
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function () {
+          var idx = current();
+          dots.forEach(function (d, i) { d.classList.toggle("is-active", i === idx); });
+        });
+      }, { passive: true });
+    });
+  }
+
   function renderBranches(rootId, list, kind) {
     var root = document.getElementById(rootId);
     if (!root || !list) return;
     root.innerHTML = "";
     list.forEach(function (b) {
       var soon = !!b.soon;
-      var media = b.img
-        ? '<img loading="lazy" src="' + IMG + b.img + '.webp" alt="' + esc(b.name) + '" width="600" height="420">'
-        : '<div class="card__nophoto"><span>&#9788;</span>' + esc(t("photo_pending")) + "</div>";
+      var media = carouselHTML(b.imgs, b.name);
       var tagClass = soon ? "branch__tag--soon" : (kind === "togo" ? "branch__tag--togo" : "branch__tag--dinein");
       var tagLabel = soon ? t("soon_label") : (kind === "togo" ? "To Go" : "Dine In");
 
@@ -191,6 +238,7 @@
         '<div class="branch__body">' + body + "</div>");
       root.appendChild(card);
     });
+    initCarousels(root);
     observeReveals();
   }
 

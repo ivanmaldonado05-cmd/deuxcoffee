@@ -27,8 +27,9 @@ Cada producto muestra **"Descripción a confirmar"**. Falta 1 línea por product
 hay que agregar el campo de descripción cuando el cliente lo pase.
 
 ## 3. Datos de sucursales — `assets/js/data.js` → `branches`
-Cada sucursal ya tiene **foto real de fachada/interior + mapa de Google embebido**
-(extraídos del sitio actual). Falta solo:
+Cada sucursal ya tiene **carrusel de fotos reales (5 fotos; Asunción 3) + mapa de
+Google embebido** (extraídos del sitio actual). Para agregar/quitar fotos, editá
+el array `imgs` de cada sucursal. Falta solo:
 - **Horario** de cada sucursal (`hours`) — no está como texto en el sitio actual;
   algunas fotos muestran horarios (ej. Centro 07:30–18:00, Plaza City Lun–Vie
   07:00–21:00) pero conviene que el cliente los confirme por sucursal.
