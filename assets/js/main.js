@@ -526,6 +526,7 @@
   }
 
   function cartInjectUI() {
+    if (document.body.classList.contains("landing")) return; // sin carrito en la landing
     var tools = document.querySelector(".header-tools");
     if (tools && !document.querySelector(".cart-btn")) {
       var b = el("button", "cart-btn");
