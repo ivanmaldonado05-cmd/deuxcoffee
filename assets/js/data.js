@@ -58,12 +58,6 @@ window.DEUX_DATA = {
       { n: "Pan de queso",          img: "salado4", price: null },
       { n: "Coxinha",               img: "salado3", price: null }
     ]},
-    { id: "otros", cat_i18n: "cat_otros", items: [
-      { n: "Agua sin gas", img: null, price: null },              // sin foto en el sitio actual
-      { n: "Agua con gas", img: null, price: null },              // sin foto en el sitio actual
-      { n: "Gaseosa",      img: "soda-italiana-1", price: null },
-      { n: "Jugo natural", img: "Frozen-Ade",      price: null }
-    ]}
   ],
 
   /* Adicionales (chips, sin foto) */
@@ -72,7 +66,7 @@ window.DEUX_DATA = {
   /* ---------- SUCURSALES (foto real + mapa de Google del sitio actual) ---------- */
   branches: {
     dinein: [
-      { name: "Área 4",   imgs: ["area4-1","area4-2","area4-3","area4-4","area4-5"], hours: null,
+      { name: "Área 4",   isNew: true, imgs: ["area4-1","area4-2","area4-3","area4-4","area4-5"], hours: null,
         maps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.143904942153!2d-54.62491987196657!3d-25.533583009260287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f68f004ef8d67b%3A0x290a5358746600b6!2sDeux%20Coffee%20%C3%81rea%204!5e0!3m2!1ses!2sbr!4v1779566100554!5m2!1ses!2sbr" },
       { name: "Centro",   imgs: ["centro-1","centro-2","centro-3","centro-4","centro-5"], hours: null,
         maps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.807853571016!2d-54.6119528!3d-25.511454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f6850c5ecaf2bf%3A0x97a3e6f7c4e5b98a!2sDeux%20Coffee%20Centro!5e0!3m2!1ses!2sbr!4v1779566280828!5m2!1ses!2sbr" },
@@ -82,7 +76,7 @@ window.DEUX_DATA = {
         maps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.5130937326735!2d-57.59378312552512!3d-25.286959777653202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da7d7e363d95b%3A0x5ba8ee505d622ccb!2sDeux%20Coffee%20Roasters!5e0!3m2!1ses!2sbr!4v1779880655448!5m2!1ses!2sbr" }
     ],
     togo: [
-      { name: "Jebai",      imgs: ["jebai-1","jebai-2","jebai-3","jebai-4","jebai-5"], hours: null,
+      { name: "Jebai",      isNew: true, imgs: ["jebai-1","jebai-2","jebai-3","jebai-4","jebai-5"], hours: null,
         maps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.8318800081297!2d-54.61205332551607!3d-25.510652877510452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f6850045c6544d%3A0xd4585139be2d53c9!2sDeux%20Coffee%20Roasters%20Jebai!5e0!3m2!1ses!2sbr!4v1779832389194!5m2!1ses!2sbr" },
       { name: "Paris",      imgs: ["paris-1","paris-2","paris-3","paris-4","paris-5"], hours: null,
         maps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.7888595699787!2d-54.60754358968812!3d-25.51208730747655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f691004602f731%3A0x710f7aec09862db3!2sDeux%20Coffee%20Roasters%20-%20Shop.%20Paris!5e0!3m2!1ses!2sbr!4v1779564461329!5m2!1ses!2sbr" },
@@ -92,18 +86,28 @@ window.DEUX_DATA = {
     ]
   },
 
-  /* ---------- TIENDA (11 productos reales del sitio actual) ---------- */
+  /* ---------- TIENDA (11 productos reales del sitio actual) ----------
+     - Precios en Guaraníes.  grind:true → abre pop-up de molienda al agregar.
+     - bestseller:true → sticker "Más vendido". */
   store: [
-    { n: "Café Red Catuai · 500g",          img: "store-red-catuai-500",    price: null },
-    { n: "Café Red Catuai Brazil · 250g",   img: "store-red-catuai-250",    price: null },
-    { n: "Café Yellow Bourbon · 500g",      img: "store-yellow-bourbon-500",price: null },
-    { n: "Café Yellow Bourbon Brazil · 250g", img: "store-yellow-bourbon-250", price: null },
-    { n: "Café Ethiopian · 250g",           img: "store-ethiopian-250",     price: null },
+    { n: "Café Red Catuai · 500g",          img: "store-red-catuai-500",    price: 150000, grind: true, bestseller: true,
+      notes: "Chocolate, almendrado", brew: "Espresso, Cafetera Italiana, Aeropress" },
+    { n: "Café Red Catuai Brazil · 250g",   img: "store-red-catuai-250",    price: 80000,  grind: true, bestseller: true,
+      notes: "Chocolate, almendrado", brew: "Espresso, Cafetera Italiana, Aeropress" },
+    { n: "Café Yellow Bourbon · 500g",      img: "store-yellow-bourbon-500",price: 150000, grind: true,
+      notes: "Naranja, miel", brew: "Espresso, Cafetera Italiana, Aeropress" },
+    { n: "Café Yellow Bourbon Brazil · 250g", img: "store-yellow-bourbon-250", price: 80000, grind: true,
+      notes: "Naranja, miel", brew: "Espresso, Cafetera Italiana, Aeropress" },
+    { n: "Café Ethiopian Yirgacheffe · 250g", img: "store-ethiopian-250",   price: 150000, grind: true,
+      notes: "Jazmín, durazno, floral", brew: "Filtrados (V60, Kalita, Chemex)" },
     { n: "Juego de cafeteras Deux",         img: "store-juego-cafeteras",   price: null },
     { n: "Timemore Kettle",                 img: "store-timemore-kettle",   price: null },
     { n: "Molino de café · Set",            img: "store-molino-set",        price: null },
     { n: "Sombrilla Deux",                  img: "store-sombrilla",         price: null },
     { n: "Termo Deux",                      img: "store-termo",             price: null },
     { n: "Vaso térmico Deux",               img: "store-vaso-termico",      price: null }
-  ]
+  ],
+
+  /* opciones de molienda (pop-up al agregar café) */
+  grindOptions: ["En grano", "Espresso", "V60 / Filtrado", "Prensa Francesa", "Moka", "No estoy seguro"]
 };

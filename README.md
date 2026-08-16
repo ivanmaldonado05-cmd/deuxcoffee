@@ -8,14 +8,17 @@ HTML/CSS/JS vanilla (sin frameworks), listo para **GitHub Pages**. Trilingüe
 
 ```
 deux-coffee/
-├── index.html            # Inicio
+├── index.html            # Landing con video (entrada) + transición
+├── home.html             # Home real (secciones)
 ├── quienes-somos.html    # Quiénes somos
 ├── dine-in.html          # Cafeterías (Área 4, Centro, Arena, Asunción)
 ├── to-go.html            # Puntos To Go (Jebai, Paris, Plaza City, Coming soon)
+├── sucursal.html         # Página individual de sucursal (?id=area4, centro, …)
 ├── menu.html             # Menú por categorías (render por JS)
-├── tienda.html           # Tienda
+├── tienda.html           # Tienda + carrito
 ├── contacto.html         # Contacto (WhatsApp + form)
 ├── assets/
+│   ├── video/            # deux-hero.mp4 (landing) + poster
 │   ├── css/styles.css    # Design system: tokens de color, tipografía, componentes
 │   ├── js/
 │   │   ├── data.js       # ← CONTENIDO editable (menú, sucursales, tienda)

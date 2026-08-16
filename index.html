@@ -2,206 +2,85 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <script>try{if(localStorage.getItem('deux-theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Deux Coffee Roasters — café de especialidad tostado en Paraguay desde 2017. Granos Arábica, cosecha manual, puntuación SCA 86+.">
-  <title>Deux Coffee Roasters — Café de especialidad tostado en Paraguay</title>
+  <meta name="description" content="Deux Coffee Roasters — café de especialidad tostado en Paraguay desde 2017.">
+  <title>Deux Coffee Roasters</title>
   <link rel="icon" type="image/webp" href="assets/img/logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body data-title-key="title_home">
+<body class="landing" data-title-key="title_home">
 
-  <!-- ===== Header ===== -->
-  <header class="site-header">
+  <!-- Transición de entrada: pantalla + logo que se desvanece -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <img class="intro__logo" src="assets/img/logo.webp" alt="">
+  </div>
+
+  <!-- Header transparente (solo landing) -->
+  <header class="site-header site-header--landing">
     <div class="wrap site-header__bar">
-      <a class="brand" href="index.html" aria-label="Deux Coffee Roasters — inicio">
-        <img src="assets/img/logo.webp" alt="Deux Coffee Roasters" width="120" height="34">
-      </a>
-      <nav class="nav" id="nav" aria-label="Principal">
-        <ul class="nav__list">
-          <li><a class="nav__link" href="index.html" aria-current="page" data-i18n="nav_home">Inicio</a></li>
-          <li><a class="nav__link" href="quienes-somos.html" data-i18n="nav_about">Quiénes somos</a></li>
-          <li><a class="nav__link" href="dine-in.html" data-i18n="nav_dinein">Dine In</a></li>
-          <li><a class="nav__link" href="to-go.html" data-i18n="nav_togo">To Go</a></li>
-          <li><a class="nav__link" href="menu.html" data-i18n="nav_menu">Menú</a></li>
-          <li><a class="nav__link" href="tienda.html" data-i18n="nav_store">Tienda</a></li>
-          <li><a class="nav__link" href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
-        </ul>
-      </nav>
+      <a class="nav__link nav__link--inicio" href="home.html" data-i18n="nav_home">Inicio</a>
       <div class="header-tools">
         <div class="lang" role="group" aria-label="Idioma / Language">
           <button class="lang__btn" type="button" data-lang="es" aria-pressed="true">ES</button>
           <button class="lang__btn" type="button" data-lang="pt" aria-pressed="false">PT</button>
           <button class="lang__btn" type="button" data-lang="en" aria-pressed="false">EN</button>
         </div>
-        <a class="wa-header" href="https://wa.me/595973853007" target="_blank" rel="noopener" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.31-1.95 1.35-.5.05-.98.24-3.3-.69-2.79-1.1-4.55-3.97-4.69-4.16-.14-.19-1.13-1.5-1.13-2.86s.71-2.03.97-2.31c.24-.26.53-.32.71-.32h.5c.16.01.38-.06.59.45.24.58.82 2 .89 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.38-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.8.87-1.08.18-.28.36-.23.61-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.68-.17 1.35z"/></svg>
-          <span data-i18n="wa_label">WhatsApp</span>
-        </a>
       </div>
-      <button class="nav-toggle" type="button" aria-label="Menú" aria-expanded="false" aria-controls="nav"><span></span></button>
     </div>
   </header>
 
-  <main>
-    <!-- ===== Hero ===== -->
-    <section class="hero">
-      <div class="hero__media">
-        <img src="assets/img/cold-brew.webp" alt="Cold brew de Deux servido con hielo sobre fondo claro" width="1300" height="2000" fetchpriority="high">
-      </div>
-      <div class="wrap hero__inner">
-        <p class="eyebrow" data-i18n="hero_eyebrow">Café de especialidad · Paraguay · desde 2017</p>
-        <h1 class="hero__title" data-i18n="hero_title">Buen café,<br>buenos momentos.</h1>
-        <p class="hero__sub" data-i18n="hero_sub">Pasá, relajate y disfrutá un café recién tostado, hecho con cariño. Solo o en compañía.</p>
-        <div class="hero__cta">
-          <a class="btn btn--light" href="menu.html" data-i18n="cta_see_menu">Ver menú</a>
-          <a class="btn btn--ghost" style="color:#fff;border-color:rgba(255,255,255,.6)" href="dine-in.html" data-i18n="cta_branches">Nuestras sucursales</a>
-        </div>
-      </div>
-      <span class="hero__scroll" data-i18n="hero_scroll">Deslizá</span>
-    </section>
+  <!-- Landing con video de fondo -->
+  <main class="landing-main">
+    <video class="landing-video" id="landing-video" autoplay muted loop playsinline preload="auto" poster="assets/video/deux-hero-poster.webp">
+      <source src="assets/video/deux-hero.mp4" type="video/mp4">
+    </video>
+    <div class="landing-overlay"></div>
 
-    <!-- ===== Facts ===== -->
-    <section class="facts">
-      <div class="wrap facts__grid">
-        <div class="fact reveal"><div class="fact__num" data-i18n="fact_year_num">2017</div><span class="fact__label" data-i18n="fact_year_label">Tostando desde</span></div>
-        <div class="fact reveal"><div class="fact__num" data-i18n="fact_sca_num">86<span>+</span></div><span class="fact__label" data-i18n="fact_sca_label">Puntuación SCA</span></div>
-        <div class="fact reveal"><div class="fact__num" data-i18n="fact_branches_num">8</div><span class="fact__label" data-i18n="fact_branches_label">Sucursales</span></div>
-        <div class="fact reveal"><div class="fact__num" data-i18n="fact_process_num">Natural</div><span class="fact__label" data-i18n="fact_process_label">Proceso fermentado</span></div>
-      </div>
-    </section>
+    <a class="landing-logo" id="landing-logo" href="home.html" aria-label="Entrar — Deux Coffee Roasters">
+      <img src="assets/img/logo.webp" alt="Deux Coffee Roasters">
+    </a>
+    <a class="landing-enter" href="home.html" data-i18n="landing_enter">Entrar</a>
 
-    <!-- ===== Intro / Quiénes somos ===== -->
-    <section class="section">
-      <div class="wrap split">
-        <div class="split__media split__media--tall reveal">
-          <img src="assets/img/200A3941.webp" alt="Interior del obrador de Deux con la tostadora Probat" width="1200" height="800" loading="lazy">
-        </div>
-        <div class="split__body reveal">
-          <p class="eyebrow" data-i18n="home_intro_eyebrow">Quiénes somos</p>
-          <h2 class="section-title" data-i18n="home_intro_title">Nacimos en 2017 con una idea simple: un café bien hecho, en un espacio para quedarse.</h2>
-          <p data-i18n="home_intro_p">Somos una cafetería moderna de especialidad. Buscamos ofrecer una experiencia única y positiva: café de la mejor calidad, recién tostado, en un ambiente acogedor y minimalista pensado para disfrutar un momento de calidad, solo o en compañía.</p>
-          <p style="margin-top:1.6rem"><a class="btn btn--ghost" href="quienes-somos.html" data-i18n="home_intro_link">Conocé nuestra historia</a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Menú preview ===== -->
-    <section class="section" style="background:var(--paper-2)">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="eyebrow" data-i18n="home_menu_eyebrow">El menú</p>
-          <h2 class="section-title" data-i18n="home_menu_title">De la Probat a tu taza</h2>
-          <p data-i18n="home_menu_p">Espresso, cold brew, frappés y una vitrina de dulces y salados recién hechos. Cada preparación pasa por baristas capacitados para una extracción perfecta.</p>
-        </div>
-        <div class="menu-grid">
-          <article class="card reveal"><div class="card__media"><img src="assets/img/togo2.webp" alt="Latte caliente con arte latte de caramelo" loading="lazy" width="600" height="600"></div><div class="card__body"><h3 class="card__name">Caramel</h3><p class="card__desc" style="color:var(--ink-55)" data-i18n="cat_hot">Hot Coffees</p></div></article>
-          <article class="card reveal"><div class="card__media"><img src="assets/img/togo1.webp" alt="Iced americano de Deux con hielo" loading="lazy" width="600" height="600"></div><div class="card__body"><h3 class="card__name">Iced Americano</h3><p class="card__desc" style="color:var(--ink-55)" data-i18n="cat_iced">Iced Coffees</p></div></article>
-          <article class="card reveal"><div class="card__media"><img src="assets/img/togo4.webp" alt="Frappe de matcha con crema" loading="lazy" width="600" height="600"></div><div class="card__body"><h3 class="card__name">Frappe de matcha</h3><p class="card__desc" style="color:var(--ink-55)" data-i18n="cat_frappe">Frappe</p></div></article>
-          <article class="card reveal"><div class="card__media"><img src="assets/img/redvelvet.webp" alt="Porción de torta red velvet" loading="lazy" width="600" height="600"></div><div class="card__body"><h3 class="card__name">Red velvet</h3><p class="card__desc" style="color:var(--ink-55)" data-i18n="cat_dulces">Dulces</p></div></article>
-        </div>
-        <p style="margin-top:2rem" class="reveal"><a class="btn" href="menu.html" data-i18n="cta_view_menu_full">Ver el menú completo</a></p>
-      </div>
-    </section>
-
-    <!-- ===== Dos formas: Dine In / To Go ===== -->
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head section-head--center reveal">
-          <p class="eyebrow eyebrow--center" data-i18n="home_modes_eyebrow">Dos formas de Deux</p>
-          <h2 class="section-title" data-i18n="home_modes_title">Quedate o llevátelo</h2>
-          <p data-i18n="home_modes_p">Fieles a nuestro nombre, hay dos maneras de vivir Deux: sentarte a disfrutar en una de nuestras cafeterías, o pasar a buscar tu café en un punto To Go.</p>
-        </div>
-        <div class="split" style="align-items:stretch">
-          <a class="split__media reveal" href="dine-in.html" style="display:block">
-            <img src="assets/img/togo14.webp" alt="Café latte servido para disfrutar en el local" width="800" height="1000" loading="lazy">
-            <div style="padding:1.4rem .2rem 0">
-              <h3 style="font-family:var(--font-heading);font-size:var(--step-2);font-weight:500" data-i18n="mode_dinein_title">Dine In</h3>
-              <p style="color:var(--ink-70);margin:.5rem 0 0" data-i18n="mode_dinein_p">Cuatro cafeterías con arquitectura moderna y urbana para sentarte, trabajar o encontrarte con amigos.</p>
-            </div>
-          </a>
-          <a class="split__media reveal" href="to-go.html" style="display:block">
-            <img src="assets/img/togo11.webp" alt="Espresso servido en vaso para llevar" width="800" height="1000" loading="lazy">
-            <div style="padding:1.4rem .2rem 0">
-              <h3 style="font-family:var(--font-heading);font-size:var(--step-2);font-weight:500" data-i18n="mode_togo_title">To Go</h3>
-              <p style="color:var(--ink-70);margin:.5rem 0 0" data-i18n="mode_togo_p">Cuatro puntos ágiles para pasar, pedir y seguir tu camino sin perder calidad.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Tienda preview ===== -->
-    <section class="section" style="background:var(--paper-2)">
-      <div class="wrap split split--reverse">
-        <div class="split__media reveal">
-          <img src="assets/img/store-juego-cafeteras.webp" alt="Set de cafeteras y accesorios Deux para preparar café en casa" width="1000" height="1000" loading="lazy">
-        </div>
-        <div class="split__body reveal">
-          <p class="eyebrow" data-i18n="home_store_eyebrow">Tienda</p>
-          <h2 class="section-title" data-i18n="home_store_title">Llevá Deux a tu casa</h2>
-          <p data-i18n="home_store_p">Café en grano, drip boxes y accesorios para preparar una taza de especialidad donde estés.</p>
-          <p style="margin-top:1.6rem"><a class="btn btn--ghost" href="tienda.html" data-i18n="cta_view_store">Ir a la tienda</a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CTA band ===== -->
-    <section class="section cta-band">
-      <div class="wrap reveal">
-        <h2 class="section-title" data-i18n="home_cta_title">¿Listo para tu próximo café?</h2>
-        <p data-i18n="home_cta_p">Escribinos por WhatsApp para pedidos, consultas o para saber qué sucursal te queda más cerca.</p>
-        <div class="btn-row">
-          <a class="btn btn--light" href="https://wa.me/595973853007" target="_blank" rel="noopener" data-i18n="cta_order_wa">Pedí por WhatsApp</a>
-          <a class="btn btn--ghost" style="color:#fff;border-color:rgba(255,255,255,.6)" href="contacto.html" data-i18n="nav_contact">Contacto</a>
-        </div>
-      </div>
-    </section>
+    <button class="audio-toggle" id="audio-toggle" type="button" aria-pressed="false" aria-label="Activar sonido del video">
+      <svg class="ic-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M22 9l-6 6M16 9l6 6"/></svg>
+      <svg class="ic-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      <span data-i18n="landing_audio">Sonido</span>
+    </button>
   </main>
-
-  <!-- ===== Footer ===== -->
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <img src="assets/img/logo.webp" alt="Deux Coffee Roasters" width="140" height="40">
-          <p data-i18n="footer_tagline">Café de especialidad tostado en Paraguay desde 2017.</p>
-          <div class="footer-social">
-            <a href="https://www.instagram.com/deuxcoffee/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-            <a href="https://www.facebook.com/DeuxcoffeePY/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg></a>
-            <a href="https://wa.me/595973853007" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.1c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.12.82.83-3.04-.2-.32a8.16 8.16 0 0 1-1.25-4.35c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23 0 4.54-3.69 8.24-8.23 8.24z"/></svg></a>
-          </div>
-        </div>
-        <nav class="footer-col" aria-label="Explorar">
-          <h4 data-i18n="footer_explore">Explorar</h4>
-          <a href="quienes-somos.html" data-i18n="nav_about">Quiénes somos</a>
-          <a href="menu.html" data-i18n="nav_menu">Menú</a>
-          <a href="dine-in.html" data-i18n="nav_dinein">Dine In</a>
-          <a href="to-go.html" data-i18n="nav_togo">To Go</a>
-          <a href="tienda.html" data-i18n="nav_store">Tienda</a>
-        </nav>
-        <div class="footer-col">
-          <h4 data-i18n="footer_visit">Visitanos</h4>
-          <a href="https://wa.me/595973853007" target="_blank" rel="noopener">+595 973 853 007</a>
-          <a href="https://www.instagram.com/deuxcoffee/" target="_blank" rel="noopener">@deuxcoffee</a>
-          <span data-i18n="footer_hours">Horario general a confirmar</span>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span data-year>2026</span> Deux Coffee Roasters. <span data-i18n="footer_rights">Todos los derechos reservados.</span></span>
-        <a href="contacto.html" data-i18n="nav_contact">Contacto</a>
-      </div>
-    </div>
-  </footer>
-
-  <a class="wa-float" href="https://wa.me/595973853007" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.31-1.95 1.35-.5.05-.98.24-3.3-.69-2.79-1.1-4.55-3.97-4.69-4.16-.14-.19-1.13-1.5-1.13-2.86s.71-2.03.97-2.31c.24-.26.53-.32.71-.32h.5c.16.01.38-.06.59.45.24.58.82 2 .89 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.38-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.8.87-1.08.18-.28.36-.23.61-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.68-.17 1.35z"/></svg>
-  </a>
 
   <script src="assets/js/data.js"></script>
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
+  <script>
+    (function () {
+      var intro = document.getElementById("intro");
+      var v = document.getElementById("landing-video");
+      var done = false;
+      function hideIntro() {
+        if (done || !intro) return; done = true;
+        intro.classList.add("is-hidden");
+        setTimeout(function () { intro.style.display = "none"; }, 1000);
+      }
+      window.addEventListener("load", function () { setTimeout(hideIntro, 1100); });
+      if (v) {
+        v.addEventListener("canplay", function () { setTimeout(hideIntro, 800); });
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+      }
+      var at = document.getElementById("audio-toggle");
+      if (at && v) {
+        at.addEventListener("click", function () {
+          v.muted = !v.muted;
+          var on = !v.muted;
+          at.setAttribute("aria-pressed", String(on));
+          at.classList.toggle("is-on", on);
+          if (on) { var p2 = v.play(); if (p2 && p2.catch) p2.catch(function () {}); }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

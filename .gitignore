@@ -2,3 +2,6 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+# fuente original pesada del video (se usa la comprimida en assets/video)
+video-deux.mp4
+*.zip

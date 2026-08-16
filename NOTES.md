@@ -1,112 +1,53 @@
-# Deux Coffee Roasters — Pendientes antes de publicar
+# Deux Coffee Roasters — Pendientes y notas
 
-Lista de todo lo que quedó marcado como `[PENDIENTE]` en el sitio. Nada acá es
-un bug: son datos reales que **no existían** en el sitio actual ni en redes y hay
-que confirmar con el cliente. Todo se completa editando **un solo archivo** salvo
-donde se indique: `assets/js/data.js`.
+Estado actual del sitio y lo que falta confirmar con el cliente.
 
----
+## Novedades de esta versión
+- **Landing con video** (`index.html`): pantalla de entrada con el video de fondo,
+  logo centrado, transición de logo al abrir, botón de sonido (apagado por defecto),
+  header transparente. Se entra al sitio con el logo o "Inicio".
+  - El home real (con secciones) ahora es **`home.html`**.
+  - ⚠️ El video se comprimió de 264 MB → **14 MB** (720p) para que cargue en la web.
+    El original quedó fuera del repo. Si el cliente quiere otro video, reemplazar
+    `assets/video/deux-hero.mp4` (ideal < 15 MB).
+- **Modo claro/oscuro** en todo el sitio (botón ☀️/🌙 en el header, se recuerda).
+- **Diseño minimalista** (blanco/negro/beige, estilo %Arabica): se quitaron las
+  secciones marrones y el verde del botón de WhatsApp.
+- **Tienda con carrito**: 11 productos, sticker "Más vendido" (Red Catuai),
+  molienda por café (pop-up), y checkout por WhatsApp con **forma de retiro/envío**
+  (Retiro en Deux Plaza / Delivery CDE / Envío nacional) + **mapa** para marcar la
+  dirección (Delivery/Envío). Los costos de envío se coordinan por WhatsApp.
+- **Sucursales**: cada local abre su **página individual** (`sucursal.html?id=…`)
+  con galería grande, mapa de Google y texto. Sticker "Nuevo" en Área 4 y Jebai.
+- **Menú**: ahora es demostrativo (solo foto + nombre). Se quitó la categoría "Otros".
 
-## 1. Precios (todos) — `assets/js/data.js`
-Ningún producto del sitio actual tiene precio publicado. Todos aparecen como
-**"Precio pendiente"** (localizado por idioma).
+## 1. Precios de tienda
+- Cafés cargados: Red Catuai 250g Gs 80.000 / 500g Gs 150.000 · Yellow Bourbon
+  igual · Ethiopian Yirgacheffe 250g Gs 150.000. (Con notas y recomendación barista.)
+- **Falta precio** de: Juego de cafeteras, Timemore Kettle, Molino de café, Sombrilla,
+  Termo, Vaso térmico → en `assets/js/data.js` (`store`, cambiar `price: null`).
+- Los precios están en **Guaraníes**. Si se quiere mostrar montos en R$/US$ en PT/EN,
+  hay que definirlos (hoy toda la tienda muestra Gs.).
 
-- **Cómo cargarlos:** en `data.js`, cambiar `price: null` por un número.
-  - Si el precio es el mismo valor base y solo cambia el símbolo:
-    `price: 25000` → se muestra `Gs. 25.000` / `R$ 25.000` / `$ 25.000`.
-  - ⚠️ **Importante:** el símbolo lo pone el idioma automáticamente, pero **los
-    montos por moneda los define el cliente** — no es una conversión automática.
-    Para montos distintos por moneda usar el formato objeto:
-    `price: { gs: 25000, brl: 25, usd: 4 }`
-- Falta definir precios de: **39 productos del menú** + **5 artículos de la tienda**
-  + los **adicionales** (Dosis extra de café, Syrup, Chantilly, Leche sin lactosa).
+## 2. Sucursales — horarios
+Cada local ya tiene fotos (galería) + mapa. Falta cargar el **horario** de cada uno
+en `assets/js/data.js` (`branches`, campo `hours`). Algunas fotos muestran horarios
+(ej. Centro 07:30–18:00) pero conviene confirmarlos.
 
-## 2. Descripciones cortas (todas) — `assets/js/data.js`
-Cada producto muestra **"Descripción a confirmar"**. Falta 1 línea por producto
-(ingredientes o estilo de preparación). Actualmente el layout está listo; solo
-hay que agregar el campo de descripción cuando el cliente lo pase.
+## 3. Fotos
+Todas las fotos de productos, tienda y sucursales están cargadas desde el sitio actual.
+(Las aguas/gaseosa/jugo se quitaron con la categoría "Otros".)
 
-## 3. Datos de sucursales — `assets/js/data.js` → `branches`
-Cada sucursal ya tiene **carrusel de fotos reales (5 fotos; Asunción 3) + mapa de
-Google embebido** (extraídos del sitio actual). Para agregar/quitar fotos, editá
-el array `imgs` de cada sucursal. Falta solo:
-- **Horario** de cada sucursal (`hours`) — no está como texto en el sitio actual;
-  algunas fotos muestran horarios (ej. Centro 07:30–18:00, Plaza City Lun–Vie
-  07:00–21:00) pero conviene que el cliente los confirme por sucursal.
-- Sucursales con foto + mapa listos: **Área 4, Centro, Arena, Asunción** (Dine In)
-  y **Jebai, Paris, Plaza City** (To Go). La 4.ª de To Go es "Coming soon".
+## 4. Tipografía
+Cuerpo y títulos en **Jost** (la real del sitio, libre). Si el cliente quiere
+*Outside Voice Medium* en títulos, pasar el `.woff2` licenciado → cambiar
+`--font-heading` en `assets/css/styles.css`.
 
-## 4. Fotos faltantes → marcadas como "Foto pendiente"
-Recuperé del sitio actual **todas** las fotos que existen (Americano, Mousse,
-Cold Brew Macchiato, Cold Brew Moccha, los 11 productos de tienda, etc.).
-Quedan sin foto **solo 2 productos, que tampoco existen en el sitio original**:
-- **Agua sin gas** y **Agua con gas** (el sitio no tiene foto de estos).
-  → Si el cliente pasa una foto, se agrega en `data.js` (categoría `otros`).
+## 5. Contacto
+Dirección de la sucursal principal y horario general siguen pendientes
+(`contact_loc_p`, `contact_hours_p`, `footer_hours` en `assets/i18n/*.json`).
 
-## 4b. Tienda + Carrito
-- La **tienda** ahora tiene los **11 productos reales** del sitio actual (cafés en
-  grano Red Catuai / Yellow Bourbon / Ethiopian, juego de cafeteras, kettle,
-  molino, sombrilla, termo, vaso térmico).
-- Se agregó un **carrito**: botón "+" en cada producto, drawer lateral con
-  cantidades y total, y botón **"Enviar pedido por WhatsApp"** (al `+595 973 853 007`)
-  con el pedido y el total en el mensaje.
-- ⚠️ El carrito **suma automáticamente cuando cargás los precios** en `data.js`
-  (`price: 90000`). Mientras estén en `null`, muestra "a confirmar" pero igual
-  arma el pedido con los productos y cantidades.
-
-## 5. Asignaciones de foto a confirmar (según el orden del menú del sitio actual)
-El mapeo foto→producto se hizo siguiendo el **orden exacto** del menú del sitio
-original, pero como las imágenes no tienen etiqueta, conviene una revisión rápida:
-- **Cookies:** `cookie1→Avena`, `cookie2→Tradicional`, `cookie3→Peanut & choco`.
-- **Salados / Dulces / Otros:** asignados en el orden del sitio; confirmar que cada
-  foto corresponde al producto (ej. `Gaseosa → soda-italiana`, `Jugo → Frozen-Ade`).
-
-## 6. Tipografías
-- **Cuerpo (resuelto):** el sitio actual usa **Jost** (Google Fonts, libre). El
-  rediseño usa la misma → variable `--font-body`.
-- **Títulos:** también **Jost** por ahora (rima con el logo). El brief mencionaba
-  **"Outside Voice Medium"** (fuente **paga**, no está en el sitio actual: la home
-  en vivo carga Jost + "Graphemic", no Outside Voice). Si se quiere usar Outside
-  Voice en títulos, el cliente debe pasar el **`.woff2` licenciado** o el link de
-  **Adobe Fonts**; luego se cambia **una sola línea**: `--font-heading` en
-  `assets/css/styles.css` (y agregar el `@font-face`).
-- **"Graphemic"** (la usa el menú del sitio viejo): **licencia desconocida**, no se
-  redistribuyó. Si el cliente tiene licencia y el `.otf`, se puede sumar.
-
-## 7. Contacto
-- **Dirección de la sucursal principal** y **horario general**: pendientes
-  (editar en `assets/i18n/es.json` / `pt.json` / `en.json` → `contact_loc_p`,
-  `contact_hours_p`, y `footer_hours`).
-- **Formulario:** al enviar abre **WhatsApp** con el mensaje ya escrito (funciona
-  sin backend). Si se prefiere recibir por email, se puede conectar Formspree /
-  Getform / EmailJS en `assets/js/main.js` → `initContactForm()`.
-- **Acordeón "Trabajo / Franquicias / Reclamos":** cada uno abre WhatsApp con el
-  mensaje **ya categorizado** (`*Quiero trabajar en Deux*`, etc.). Mismo criterio:
-  si el cliente quiere que RRHH/franquicias/reclamos lleguen por **email** o a
-  **números distintos**, se ajusta en `initGestionForms()` (`assets/js/main.js`).
-  Para trabajo, si quieren recibir **CV adjunto**, WhatsApp permite adjuntar el
-  archivo al abrir el chat (o conectar un form con subida de archivos).
-
-## 8. Otros / opcionales
-- **WhatsApp:** ya configurado con `+595 973 853 007` (`https://wa.me/595973853007`).
-- **Favicon:** usa `logo.webp`. Opcional: generar un set `.ico`/`.png` para
-  compatibilidad total con navegadores viejos.
-- **Imágenes sin usar:** `togo9.webp` y `togo13.webp` quedaron descargadas por si
-  se necesitan (espresso / iced extra).
-- **Hero:** imagen `cold-brew.webp` (limpia, liviana). Cambiar el hero = 1 línea
-  en `index.html` (`.hero__media img`).
-- **Video corto opcional:** si más adelante se quiere movimiento en el hero, dejar
-  un `.mp4` comprimido (<3MB, muted, con `poster`) — hoy es imagen estática a
-  propósito (el video pesado del sitio viejo fue lo que se reemplazó).
-
----
-
-### Resumen para pedirle al cliente
-1. Lista de **precios** por producto (y si difieren en Gs / R$ / US$).
-2. Una **descripción de 1 línea** por producto.
-3. **Dirección + horario + link de Maps** de las 8 sucursales.
-4. **Fotos** de: Americano, Mocca, Cold Brew Macchiato, Cold Brew Moccha, Mousse
-   mburucuyá & choco, Agua c/ y s/ gas, Tumbler, y **fachadas de cada sucursal**.
-5. Confirmar mapeo de **cookies** y **salados**.
-6. Si quieren **Outside Voice Medium** en títulos: pasar el `.woff2` o link de Adobe Fonts.
-7. **Dirección + horario** de la sucursal principal para Contacto.
+## 6. Formularios
+Contacto, trabajo, franquicias y reclamos → todos abren WhatsApp con el mensaje
+categorizado. Si se prefiere email/otro número, ver `initGestionForms` / `initContactForm`
+en `assets/js/main.js`.
