@@ -317,7 +317,7 @@ h1, h2, h3, h4 {
 .gallery4 figure:hover img { transform: scale(1.05); }
 .gallery4 figcaption {
   position: absolute; inset-inline: 0; bottom: 0; padding: 1.6rem 1.1rem .95rem;
-  font-size: var(--step--1); color: var(--white);
+  font-size: var(--step--1); color: #fff;
   background: linear-gradient(transparent, rgba(23,19,15,.78));
 }
 
@@ -790,4 +790,24 @@ body.landing { overflow: hidden; }
   .footer-top { grid-template-columns: 1fr; }
   .hero { min-height: 82vh; }
   .lang__btn { padding: .42em .5em; }
+}
+
+/* ===== Correcciones mobile (no afectan desktop) ===== */
+@media (max-width: 780px) {
+  /* Landing: links del desplegable legibles sobre fondo claro */
+  .site-header--landing .nav { background: var(--paper); }
+  .site-header--landing .nav__link,
+  .site-header--landing .nav__link:hover,
+  .site-header--landing .nav__link[aria-current="page"] { color: var(--ink); }
+  /* Menú: la barra de categorías no queda fija al scrollear */
+  .menu-tabbar { position: static; top: auto; }
+}
+@media (max-width: 560px) {
+  /* Menú: productos más chicos, varios por fila */
+  .menu-grid { grid-template-columns: repeat(2, 1fr); gap: .6rem; }
+  .menu-grid .card__body { padding: .55rem .7rem .8rem; }
+  .menu-grid .card__name { font-size: .82rem; line-height: 1.15; }
+  .menu-cat__head h2 { font-size: var(--step-1); }
+  /* Galería "El obrador": captions más compactos */
+  .gallery4 figcaption { padding: .85rem .7rem .55rem; font-size: .68rem; line-height: 1.25; }
 }
