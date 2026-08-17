@@ -829,3 +829,7 @@ body.landing { overflow: hidden; }
 .serving__btn { font-family: var(--font-heading); text-transform: uppercase; letter-spacing: .1em; font-size: .74rem; font-weight: 500; padding: .5em 1.1em; border: 0; background: transparent; color: var(--ink-55); border-radius: 999px; cursor: pointer; transition: background .25s var(--ease), color .25s var(--ease); }
 .serving__btn.is-active { background: var(--ink); color: var(--paper); }
 .serving__btn:hover:not(.is-active) { color: var(--ink); }
+
+/* Imagen de producto (bolsa) en split: mostrar entera */
+.split__media--product { background: #f4f2ee; }
+.split__media--product img { object-fit: contain; aspect-ratio: 4/3; max-height: 440px; padding: 1.2rem; }
