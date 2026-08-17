@@ -70,6 +70,22 @@
   }
 
   /* ---------- render: MENÚ ---------- */
+  var servingMode = "dinein"; // "dinein" (en taza) | "togo" (en vaso)
+  function renderServingToggle() {
+    var host = document.getElementById("menu-serving");
+    if (!host) return;
+    host.innerHTML =
+      '<span class="serving__label">' + esc(t("serve_hint")) + "</span>" +
+      '<div class="serving__toggle">' +
+        '<button class="serving__btn' + (servingMode === "dinein" ? " is-active" : "") + '" type="button" data-mode="dinein">' + esc(t("serve_dinein")) + "</button>" +
+        '<button class="serving__btn' + (servingMode === "togo" ? " is-active" : "") + '" type="button" data-mode="togo">' + esc(t("serve_togo")) + "</button>" +
+      "</div>";
+    host.querySelectorAll(".serving__btn").forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (b.dataset.mode !== servingMode) { servingMode = b.dataset.mode; renderMenu(); }
+      });
+    });
+  }
   function renderMenu() {
     var root = document.getElementById("menu-root");
     var tabsRoot = document.getElementById("menu-tabs");
@@ -77,6 +93,7 @@
     var data = window.DEUX_DATA.menu;
     root.innerHTML = "";
     if (tabsRoot) tabsRoot.innerHTML = "";
+    renderServingToggle();
 
     data.forEach(function (catg) {
       if (tabsRoot) {
@@ -95,8 +112,9 @@
 
       var grid = el("div", "menu-grid");
       catg.items.forEach(function (it) {
+        var useImg = (servingMode === "dinein" && it.cafe) ? it.cafe : it.img;
         var card = el("article", "card reveal",
-          '<div class="card__media">' + mediaHTML(it.img, it.n) + "</div>" +
+          '<div class="card__media">' + mediaHTML(useImg, it.n) + "</div>" +
           '<div class="card__body"><h3 class="card__name">' + esc(it.n) + "</h3></div>");
         grid.appendChild(card);
       });
@@ -321,7 +339,7 @@
   }
 
   function doAdd(p, grind, addBtn) {
-    cartAdd({ id: (p.img || p.n) + (grind ? "__" + grind : ""), name: p.n, img: p.img, price: p.price, grind: grind || null });
+    cartAdd({ id: (p.img || p.n) + (grind ? "__" + grind : ""), name: p.n, img: p.img, price: p.price, grind: grind || null, coffee: !!p.grind });
     if (addBtn) {
       addBtn.classList.add("is-added"); addBtn.textContent = "✓";
       var cb = document.querySelector(".cart-btn"); if (cb) { cb.classList.remove("bump"); void cb.offsetWidth; cb.classList.add("bump"); }
@@ -393,7 +411,8 @@
     if (!cart.length) return null;
     var ok = cart.every(function (i) { return priceBase(i.price) != null; });
     if (!ok) return null;
-    return cart.reduce(function (a, i) { return a + Number(priceBase(i.price)) * i.qty; }, 0);
+    var sum = cart.reduce(function (a, i) { return a + Number(priceBase(i.price)) * i.qty; }, 0);
+    return sum - coffeeDiscountAmount();
   }
   function fmtNum(n) { try { return n.toLocaleString("es-PY"); } catch (e) { return String(n); } }
   function cartTotalText() {
@@ -404,9 +423,20 @@
   function cartAdd(item) {
     var ex = cartFind(item.id);
     if (ex) ex.qty += 1;
-    else cart.push({ id: item.id, name: item.name, img: item.img, price: item.price, qty: 1, grind: item.grind || null });
+    else cart.push({ id: item.id, name: item.name, img: item.img, price: item.price, qty: 1, grind: item.grind || null, coffee: !!item.coffee });
     cartSave(); cartRender();
   }
+
+  /* ---- descuento por café en grano: 2u=10%, 3u+=15% (mezclando variedades) ---- */
+  function coffeeUnits() { return cart.reduce(function (a, i) { return a + (i.coffee ? i.qty : 0); }, 0); }
+  function coffeeDiscountRate() { var u = coffeeUnits(); return u >= 3 ? 0.15 : (u === 2 ? 0.10 : 0); }
+  function coffeeSubtotal() {
+    return cart.reduce(function (a, i) {
+      if (!i.coffee) return a;
+      var b = priceBase(i.price); return b == null ? a : a + Number(b) * i.qty;
+    }, 0);
+  }
+  function coffeeDiscountAmount() { return Math.round(coffeeSubtotal() * coffeeDiscountRate()); }
   function cartSetQty(id, q) {
     var it = cartFind(id); if (!it) return;
     it.qty = Math.max(0, q);
@@ -447,7 +477,10 @@
       var g = i.grind ? " (" + grindLabel(i.grind) + ")" : "";
       return "• " + i.name + g + " ×" + i.qty + lt;
     });
-    var msg = t("cart_greeting") + "\n\n" + lines.join("\n") + "\n\n" + t("cart_total") + ": " + cartTotalText();
+    var msg = t("cart_greeting") + "\n\n" + lines.join("\n");
+    var rate = coffeeDiscountRate();
+    if (rate > 0) msg += "\n\n" + t("cart_discount") + " (" + Math.round(rate * 100) + "%): -" + CUR + " " + fmtNum(coffeeDiscountAmount());
+    msg += "\n\n" + t("cart_total") + ": " + cartTotalText();
     msg += "\n" + t("cart_delivery") + ": " + method;
     if (address) msg += "\n" + t("cart_address") + ": " + address;
     if (coords) msg += "\n" + t("cart_location") + ": https://maps.google.com/?q=" + coords.lat + "," + coords.lng;
@@ -579,16 +612,24 @@
             '<span class="cart-item__price">' + priceText(i.price) + "</span>" +
           "</div></div></div>";
     }).join("");
+    var rate = coffeeDiscountRate();
+    var discLine = rate > 0
+      ? '<div class="cart-disc"><span>' + esc(t("cart_discount")) + " (" + Math.round(rate * 100) + '%)</span><span>&minus; ' + CUR + " " + fmtNum(coffeeDiscountAmount()) + "</span></div>"
+      : "";
     foot.innerHTML =
+      discLine +
       '<div class="cart-total"><span>' + esc(t("cart_total")) + "</span><strong>" + cartTotalText() + "</strong></div>" +
       '<button class="btn cart-checkout" type="button">' + WA_GLYPH + "<span>" + esc(t("cart_checkout")) + "</span></button>" +
+      '<button class="cart-clear" type="button">' + esc(t("cart_clear")) + "</button>" +
       '<p class="cart-note">' + esc(t("cart_note")) + "</p>";
 
     items.querySelectorAll("[data-inc]").forEach(function (b) { b.onclick = function () { var it = cartFind(b.dataset.inc); cartSetQty(b.dataset.inc, it.qty + 1); }; });
     items.querySelectorAll("[data-dec]").forEach(function (b) { b.onclick = function () { var it = cartFind(b.dataset.dec); cartSetQty(b.dataset.dec, it.qty - 1); }; });
     items.querySelectorAll("[data-remove]").forEach(function (b) { b.onclick = function () { cartRemove(b.dataset.remove); }; });
     foot.querySelector(".cart-checkout").onclick = cartCheckout;
+    foot.querySelector(".cart-clear").onclick = cartClear;
   }
+  function cartClear() { cart = []; cartSave(); cartRender(); }
 
   /* ---------- render en cambio de idioma ---------- */
   function renderAll() {
@@ -614,7 +655,7 @@
       var msg = (document.getElementById("cf-msg").value || "").trim();
       if (!name) { document.getElementById("cf-name").focus(); return; }
       if (!msg) { document.getElementById("cf-msg").focus(); return; }
-      var text = "Hola Deux 👋 Soy " + name + (email ? " (" + email + ")" : "") + ".\n" + msg;
+      var text = "Hola Deux, soy " + name + (email ? " (" + email + ")" : "") + ".\n" + msg;
       window.open("https://wa.me/595973853007?text=" + encodeURIComponent(text), "_blank", "noopener");
     });
   }

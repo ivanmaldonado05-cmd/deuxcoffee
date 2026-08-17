@@ -128,7 +128,7 @@
   "count_items": "items",
 
   "store_hero_eyebrow": "Store",
-  "store_hero_title": "Single-origin coffee, roasted to order and shipped in 24 hours",
+  "store_hero_title": "Single-origin coffee, roasted to order and shipped in 24 to 48 hours",
   "store_hero_p": "Whole-bean coffee, drip boxes and gear to brew specialty coffee wherever you are.",
   "store_note": "Prices are being added. To buy or check availability, message us on WhatsApp.",
 
@@ -181,8 +181,13 @@
   "cart_remove": "Remove",
   "cart_add": "Add to cart",
   "cart_note": "We'll arrange payment and delivery over WhatsApp.",
-  "cart_greeting": "Hi Deux! 👋 I'd like to order:",
+  "cart_greeting": "Hi Deux! I'd like to order:",
   "cart_pending": "to confirm",
+  "cart_clear": "Empty cart",
+  "cart_discount": "Coffee discount",
+  "serve_hint": "See how we serve it:",
+  "serve_dinein": "In cup",
+  "serve_togo": "Takeaway",
   "cart_delivery": "Fulfilment",
   "cart_address": "Address",
   "cart_location": "Location",

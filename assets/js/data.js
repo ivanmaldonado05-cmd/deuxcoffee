@@ -12,20 +12,20 @@ window.DEUX_DATA = {
   /* ---------- MENÚ (mapeo de fotos según el orden real del sitio) ---------- */
   menu: [
     { id: "hot", cat_i18n: "cat_hot", items: [
-      { n: "Espresso",        img: "togo11",    price: null },
-      { n: "Espresso duplo",  img: "togo12",    price: null },
-      { n: "Americano",       img: "americano", price: null },
-      { n: "Flat White",      img: "togo14",    price: null },
-      { n: "Latte",           img: "togo5",     price: null },
-      { n: "Capuccino",       img: "togo6",     price: null },
-      { n: "Mocca",           img: "togo9",     price: null },
-      { n: "Caramel",         img: "togo2",     price: null }
+      { n: "Espresso",        img: "togo11",    cafe: "cafe4",  price: null },
+      { n: "Espresso duplo",  img: "togo12",    cafe: "cafe11", price: null },
+      { n: "Americano",       img: "americano", cafe: "cafe12", price: null },
+      { n: "Flat White",      img: "togo14",    cafe: "cafe8",  price: null },
+      { n: "Latte",           img: "togo5",     cafe: "cafe10", price: null },
+      { n: "Capuccino",       img: "togo6",     cafe: "cafe9",  price: null },
+      { n: "Mocca",           img: "togo9",     cafe: "cafe7",  price: null },
+      { n: "Caramel",         img: "togo2",     cafe: "cafe3",  price: null }
     ]},
     { id: "iced", cat_i18n: "cat_iced", items: [
-      { n: "Iced Americano",  img: "togo13", price: null },
-      { n: "Cold Brew",       img: "togo1",  price: null },
-      { n: "Iced Mocca",      img: "togo10", price: null },
-      { n: "Iced Caramel",    img: "togo3",  price: null }
+      { n: "Iced Americano",  img: "togo13", cafe: "cafe5", price: null },
+      { n: "Cold Brew",       img: "togo1",  cafe: "cafe1", price: null },
+      { n: "Iced Mocca",      img: "togo10", cafe: "cafe6", price: null },
+      { n: "Iced Caramel",    img: "togo3",  cafe: "cafe2", price: null }
     ]},
     { id: "coldbrew", cat_i18n: "cat_coldbrew", items: [
       { n: "Cold Brew",                img: "cold-brew",               price: null },

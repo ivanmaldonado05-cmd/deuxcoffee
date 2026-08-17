@@ -128,7 +128,7 @@
   "count_items": "productos",
 
   "store_hero_eyebrow": "Tienda",
-  "store_hero_title": "Café de origen único, tostado a pedido y enviado en 24 horas",
+  "store_hero_title": "Café de origen único, tostado a pedido y enviado en 24 a 48 horas",
   "store_hero_p": "Café en grano, drip boxes y accesorios para preparar especialidad donde estés.",
   "store_note": "Precios en proceso de carga. Para comprar o consultar disponibilidad, escribinos por WhatsApp.",
 
@@ -181,8 +181,13 @@
   "cart_remove": "Quitar",
   "cart_add": "Agregar al carrito",
   "cart_note": "Coordinamos el pago y la entrega por WhatsApp.",
-  "cart_greeting": "¡Hola Deux! 👋 Quiero hacer este pedido:",
+  "cart_greeting": "¡Hola Deux! Quiero hacer este pedido:",
   "cart_pending": "a confirmar",
+  "cart_clear": "Vaciar carrito",
+  "cart_discount": "Descuento café",
+  "serve_hint": "Mirá cómo lo servimos:",
+  "serve_dinein": "En taza",
+  "serve_togo": "Para llevar",
   "cart_delivery": "Forma de retiro",
   "cart_address": "Dirección",
   "cart_location": "Ubicación",

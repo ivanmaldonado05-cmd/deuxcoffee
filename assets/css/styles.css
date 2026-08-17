@@ -816,3 +816,16 @@ body.landing { overflow: hidden; }
   /* Galería "El obrador": captions más compactos */
   .gallery4 figcaption { padding: .85rem .7rem .55rem; font-size: .68rem; line-height: 1.25; }
 }
+
+/* ===== Vaciar carrito + descuento café ===== */
+.cart-disc { display: flex; justify-content: space-between; font-size: var(--step--1); color: var(--amber-deep); margin-bottom: .5rem; }
+.cart-clear { display: block; width: 100%; margin-top: .7rem; background: none; border: 0; color: var(--ink-55); font-family: var(--font-heading); text-transform: uppercase; letter-spacing: .1em; font-size: .72rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.cart-clear:hover { color: var(--amber-deep); }
+
+/* ===== Toggle servido Dine In / To Go (menú) ===== */
+.menu-serving { display: flex; align-items: center; gap: .9rem; flex-wrap: wrap; margin-top: 1.4rem; }
+.serving__label { font-family: var(--font-heading); text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; color: var(--ink-55); }
+.serving__toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+.serving__btn { font-family: var(--font-heading); text-transform: uppercase; letter-spacing: .1em; font-size: .74rem; font-weight: 500; padding: .5em 1.1em; border: 0; background: transparent; color: var(--ink-55); border-radius: 999px; cursor: pointer; transition: background .25s var(--ease), color .25s var(--ease); }
+.serving__btn.is-active { background: var(--ink); color: var(--paper); }
+.serving__btn:hover:not(.is-active) { color: var(--ink); }
