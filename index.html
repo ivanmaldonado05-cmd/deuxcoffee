@@ -75,6 +75,11 @@
         if (done || !intro) return; done = true;
         intro.classList.add("is-hidden");
         setTimeout(function () { intro.style.display = "none"; }, 1000);
+        // el logo del video se desvanece a los ~5s
+        setTimeout(function () {
+          var lg = document.getElementById("landing-logo");
+          if (lg) lg.classList.add("is-hidden");
+        }, 5000);
       }
       window.addEventListener("load", function () { setTimeout(hideIntro, 1100); });
       if (v) {
