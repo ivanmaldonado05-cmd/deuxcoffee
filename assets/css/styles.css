@@ -472,7 +472,7 @@ h1, h2, h3, h4 {
 .product__desc { font-size: var(--step--1); color: var(--ink-70); flex: 1; }
 
 /* ============ Contacto ============ */
-.contact-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 4vw, 4rem); }
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: clamp(1.6rem, 3vw, 2.4rem); max-width: 620px; margin-inline: auto; }
 .contact-methods { display: grid; gap: 1rem; align-content: start; }
 .contact-card {
   display: flex; gap: 1rem; align-items: flex-start;
@@ -830,11 +830,12 @@ body.landing { overflow: hidden; }
 .serving__btn.is-active { background: var(--ink); color: var(--paper); }
 .serving__btn:hover:not(.is-active) { color: var(--ink); }
 
-/* Imagen de producto (bolsa) en split: llena el marco (cover), redondeada, sin márgenes */
-.split__media--product { background: #f4f2ee; }
-.split__media--product img { object-fit: cover; aspect-ratio: 3/4; max-height: 540px; object-position: center 45%; }
-/* Taza / vaso (Dine In / To Go): cuadrado consistente, centrado y más chico */
-.split__media--cup img { aspect-ratio: 1/1; object-fit: cover; width: 100%; max-width: 340px; margin-inline: auto; display: block; background: #f4f2ee; }
+/* Imagen de producto (bolsa) en split: tarjeta redondeada con la bolsa entera, centrada */
+.split__media--product { background: radial-gradient(135% 125% at 50% 12%, #f6f4f0 0%, #e6e3dc 100%); border-radius: 22px; overflow: hidden; }
+.split__media--product img { object-fit: contain; aspect-ratio: 3/2; max-height: 400px; padding: 1.5rem; border-radius: 0; }
+/* Taza / vaso (Dine In / To Go): cuadrado centrado, con el texto alineado debajo */
+.split__media--cup { max-width: 340px; margin-inline: auto; }
+.split__media--cup img { aspect-ratio: 1/1; object-fit: cover; width: 100%; display: block; background: #f4f2ee; }
 
 /* Nota de descuento en la tienda (arriba) */
 .section-head p.store-promo { display: inline-flex; align-items: center; gap: .5em; margin: 1.1rem 0 0; font-family: var(--font-heading); font-weight: 500; font-size: var(--step--1); letter-spacing: .01em; color: var(--amber-deep); background: color-mix(in srgb, var(--amber) 14%, transparent); border-radius: 999px; padding: .45em 1.05em; max-width: max-content; }
