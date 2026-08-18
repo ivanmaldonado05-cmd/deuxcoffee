@@ -22,12 +22,12 @@ window.DEUX_DATA = {
       { n: "Caramel",         img: "togo2",     cafe: "cafe3",  price: null }
     ]},
     { id: "iced", cat_i18n: "cat_iced", items: [
-      { n: "Iced Americano",  img: "togo1",  cafe: "cafe1", price: null },
+      { n: "Iced Americano",  img: "togo13", cafe: "cafe1", price: null },
       { n: "Iced Mocca",      img: "togo10", cafe: "cafe6", price: null },
       { n: "Iced Caramel",    img: "togo3",  cafe: "cafe2", price: null }
     ]},
     { id: "coldbrew", cat_i18n: "cat_coldbrew", items: [
-      { n: "Cold Brew",         img: "togo13", cafe: "cafe5", price: null },
+      { n: "Cold Brew",         img: "togo1",  cafe: "cafe5", price: null },
       { n: "Cold Brew Moccha",  img: "togo10", cafe: "cafe6", price: null },
       { n: "Cold Brew Caramel", img: "togo3",  cafe: "cafe2", price: null }
     ]},
