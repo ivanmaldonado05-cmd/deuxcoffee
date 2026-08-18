@@ -291,7 +291,7 @@
           '<p class="eyebrow">' + esc(t("branch_about_eyebrow")) + "</p>" +
           "<p>" + esc(t("branch_detail_intro")) + "</p>" +
           '<div class="branchpage__cta">' +
-            '<a class="btn" href="https://wa.me/595973853007" target="_blank" rel="noopener">' + esc(t("cta_order_wa")) + "</a>" +
+            (b.ig ? '<a class="btn" href="' + esc(b.ig) + '" target="_blank" rel="noopener">' + esc(t("branch_ig")) + "</a>" : "") +
             (b.maps ? '<a class="btn btn--ghost" href="https://maps.google.com/?q=' + encodeURIComponent(b.name + " Deux Coffee") + '" target="_blank" rel="noopener">' + esc(t("branch_how")) + "</a>" : "") +
           "</div>" +
         "</div>" +
