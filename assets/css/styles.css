@@ -473,7 +473,7 @@ h1, h2, h3, h4 {
 
 /* ============ Contacto ============ */
 .contact-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 4vw, 4rem); }
-.contact-methods { display: grid; gap: 1rem; }
+.contact-methods { display: grid; gap: 1rem; align-content: start; }
 .contact-card {
   display: flex; gap: 1rem; align-items: flex-start;
   background: var(--white); border: 1px solid var(--line-2); border-radius: var(--radius-lg);
@@ -830,11 +830,11 @@ body.landing { overflow: hidden; }
 .serving__btn.is-active { background: var(--ink); color: var(--paper); }
 .serving__btn:hover:not(.is-active) { color: var(--ink); }
 
-/* Imagen de producto (bolsa) en split: vertical, grande y entera */
+/* Imagen de producto (bolsa) en split: llena el marco (cover), redondeada, sin márgenes */
 .split__media--product { background: #f4f2ee; }
-.split__media--product img { object-fit: contain; aspect-ratio: 2/3; max-height: 560px; padding: 0; }
-/* Taza / vaso (Dine In / To Go): cuadrado consistente, centrado */
-.split__media--cup img { aspect-ratio: 1/1; object-fit: cover; max-height: none; background: #f4f2ee; }
+.split__media--product img { object-fit: cover; aspect-ratio: 3/4; max-height: 540px; object-position: center 45%; }
+/* Taza / vaso (Dine In / To Go): cuadrado consistente, centrado y más chico */
+.split__media--cup img { aspect-ratio: 1/1; object-fit: cover; width: 100%; max-width: 340px; margin-inline: auto; display: block; background: #f4f2ee; }
 
 /* Nota de descuento en la tienda (arriba) */
 .section-head p.store-promo { display: inline-flex; align-items: center; gap: .5em; margin: 1.1rem 0 0; font-family: var(--font-heading); font-weight: 500; font-size: var(--step--1); letter-spacing: .01em; color: var(--amber-deep); background: color-mix(in srgb, var(--amber) 14%, transparent); border-radius: 999px; padding: .45em 1.05em; max-width: max-content; }
@@ -847,3 +847,9 @@ body.landing { overflow: hidden; }
 /* Landing: el logo se desvanece a los ~5s */
 .landing-logo { transition: opacity 1s var(--ease); }
 .landing-logo.is-hidden { opacity: 0; pointer-events: none; }
+
+/* Landing "Entrar": oculto en desktop (ya está el menú de arriba); en mobile, abajo del todo */
+.landing-enter { display: none; }
+@media (max-width: 780px) {
+  .landing-enter { display: inline-block; top: auto; bottom: 76px; }
+}
