@@ -644,7 +644,8 @@
   }
   document.addEventListener("deux:i18n", renderAll);
 
-  /* ---------- formulario de contacto → WhatsApp ---------- */
+  /* ---------- formulario de contacto → email ---------- */
+  var DEUX_EMAIL = "deuxcoffeepy@gmail.com";
   function initContactForm() {
     var form = document.getElementById("contact-form");
     if (!form) return;
@@ -656,7 +657,8 @@
       if (!name) { document.getElementById("cf-name").focus(); return; }
       if (!msg) { document.getElementById("cf-msg").focus(); return; }
       var text = "Hola Deux, soy " + name + (email ? " (" + email + ")" : "") + ".\n" + msg;
-      window.open("https://wa.me/595973853007?text=" + encodeURIComponent(text), "_blank", "noopener");
+      var subject = "Consulta web" + (name ? " — " + name : "");
+      window.location.href = "mailto:" + DEUX_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
     });
   }
 
@@ -672,7 +674,7 @@
     });
   }
 
-  /* ---------- formularios de gestión → WhatsApp categorizado ---------- */
+  /* ---------- formularios de gestión → email categorizado ---------- */
   function initGestionForms() {
     document.querySelectorAll(".gestion-form").forEach(function (form) {
       form.addEventListener("submit", function (e) {
@@ -689,8 +691,8 @@
           var val = (f.value || "").trim();
           if (val) lines.push(name + ": " + val);
         });
-        var text = "*" + cat + "*\n" + lines.join("\n");
-        window.open("https://wa.me/595973853007?text=" + encodeURIComponent(text), "_blank", "noopener");
+        var text = lines.join("\n");
+        window.location.href = "mailto:" + DEUX_EMAIL + "?subject=" + encodeURIComponent(cat + " — Deux web") + "&body=" + encodeURIComponent(text);
       });
     });
   }
