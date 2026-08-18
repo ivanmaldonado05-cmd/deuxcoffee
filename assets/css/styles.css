@@ -830,9 +830,9 @@ body.landing { overflow: hidden; }
 .serving__btn.is-active { background: var(--ink); color: var(--paper); }
 .serving__btn:hover:not(.is-active) { color: var(--ink); }
 
-/* Imagen de producto (bolsa) en split: tarjeta redondeada con la bolsa entera, centrada */
-.split__media--product { background: radial-gradient(135% 125% at 50% 12%, #f6f4f0 0%, #e6e3dc 100%); border-radius: 22px; overflow: hidden; }
-.split__media--product img { object-fit: contain; aspect-ratio: 3/2; max-height: 400px; padding: 1.5rem; border-radius: 0; }
+/* Imagen de producto (bolsa) en split: la foto (con su fondo en gradiente) llena la tarjeta, sin recuadro interno */
+.split__media--product { border-radius: 22px; overflow: hidden; }
+.split__media--product img { object-fit: cover; aspect-ratio: 3/2; max-height: 400px; object-position: center 62%; }
 /* Taza / vaso (Dine In / To Go): cuadrado centrado, con el texto alineado debajo */
 .split__media--cup { max-width: 340px; margin-inline: auto; }
 .split__media--cup img { aspect-ratio: 1/1; object-fit: cover; width: 100%; display: block; background: #f4f2ee; }
