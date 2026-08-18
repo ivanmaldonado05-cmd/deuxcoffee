@@ -23,7 +23,6 @@ window.DEUX_DATA = {
     ]},
     { id: "iced", cat_i18n: "cat_iced", items: [
       { n: "Iced Americano",  img: "togo13", cafe: "cafe5", price: null },
-      { n: "Cold Brew",       img: "togo1",  cafe: "cafe1", price: null },
       { n: "Iced Mocca",      img: "togo10", cafe: "cafe6", price: null },
       { n: "Iced Caramel",    img: "togo3",  cafe: "cafe2", price: null }
     ]},
@@ -32,7 +31,8 @@ window.DEUX_DATA = {
       { n: "Cold Brew Latte",          img: "cold-brew-latte",         price: null },
       { n: "Cold Brew Vainilla Latte", img: "cold-brew-vainilla-latte", price: null },
       { n: "Cold Brew Macchiato",      img: "cold-brew-macchiato", price: null },
-      { n: "Cold Brew Moccha",         img: "cold-brew-moccha",    price: null }
+      { n: "Cold Brew Moccha",         img: "cold-brew-moccha",    price: null },
+      { n: "Cold Brew Caramel",        img: "togo3",               price: null }
     ]},
     { id: "frappe", cat_i18n: "cat_frappe", items: [
       { n: "Frappe de vainilla",  img: "togo8", price: null },
