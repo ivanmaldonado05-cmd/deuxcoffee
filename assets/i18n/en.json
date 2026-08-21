@@ -128,9 +128,9 @@
   "count_items": "items",
 
   "store_hero_eyebrow": "Store",
-  "store_hero_title": "Single-origin coffee, roasted to order and shipped in 24 to 48 hours",
+  "store_hero_title": "Single-origin coffee, roasted to order and shipped in 24 to 48 business hours",
   "store_hero_p": "Whole-bean coffee, drip boxes and gear to brew specialty coffee wherever you are.",
-  "store_discount_note": "Whole-bean coffee: 2 units 10% · 3 or more 15% off",
+  "store_discount_note": "Promo whole-bean coffee: 2 units 10% · 3 or more 15% off",
   "store_note": "Prices are being added. To buy or check availability, message us on WhatsApp.",
 
   "contact_hero_eyebrow": "Contact",
@@ -188,7 +188,7 @@
   "cart_greeting": "Hi Deux! I'd like to order:",
   "cart_pending": "to confirm",
   "cart_clear": "Empty cart",
-  "cart_discount": "Coffee discount",
+  "cart_discount": "Promotional coffee discount",
   "serve_hint": "See how we serve it:",
   "serve_dinein": "In cup",
   "serve_togo": "Takeaway",

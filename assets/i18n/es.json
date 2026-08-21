@@ -128,9 +128,9 @@
   "count_items": "productos",
 
   "store_hero_eyebrow": "Tienda",
-  "store_hero_title": "Café de origen único, tostado a pedido y enviado en 24 a 48 horas",
+  "store_hero_title": "Café de origen único, tostado a pedido y enviado en 24 a 48 horas hábiles",
   "store_hero_p": "Café en grano, drip boxes y accesorios para preparar especialidad donde estés.",
-  "store_discount_note": "Café en grano: 2 unidades 10% · 3 o más 15% de descuento",
+  "store_discount_note": "Promo café en grano: 2 unidades 10% · 3 o más 15% de descuento",
   "store_note": "Precios en proceso de carga. Para comprar o consultar disponibilidad, escribinos por WhatsApp.",
 
   "contact_hero_eyebrow": "Contacto",
@@ -188,7 +188,7 @@
   "cart_greeting": "¡Hola Deux! Quiero hacer este pedido:",
   "cart_pending": "a confirmar",
   "cart_clear": "Vaciar carrito",
-  "cart_discount": "Descuento café",
+  "cart_discount": "Descuento promocional de café",
   "serve_hint": "Mirá cómo lo servimos:",
   "serve_dinein": "En taza",
   "serve_togo": "Para llevar",

@@ -128,9 +128,9 @@
   "count_items": "produtos",
 
   "store_hero_eyebrow": "Loja",
-  "store_hero_title": "Café de origem única, torrado sob encomenda e enviado em 24 a 48 horas",
+  "store_hero_title": "Café de origem única, torrado sob encomenda e enviado em 24 a 48 horas úteis",
   "store_hero_p": "Café em grão, drip boxes e acessórios para preparar café especial onde você estiver.",
-  "store_discount_note": "Café em grão: 2 unidades 10% · 3 ou mais 15% de desconto",
+  "store_discount_note": "Promo café em grão: 2 unidades 10% · 3 ou mais 15% de desconto",
   "store_note": "Preços em processo de carregamento. Para comprar ou consultar disponibilidade, fale com a gente no WhatsApp.",
 
   "contact_hero_eyebrow": "Contato",
@@ -188,7 +188,7 @@
   "cart_greeting": "Olá Deux! Quero fazer este pedido:",
   "cart_pending": "a confirmar",
   "cart_clear": "Esvaziar carrinho",
-  "cart_discount": "Desconto café",
+  "cart_discount": "Desconto promocional de café",
   "serve_hint": "Veja como servimos:",
   "serve_dinein": "Na xícara",
   "serve_togo": "Para levar",
